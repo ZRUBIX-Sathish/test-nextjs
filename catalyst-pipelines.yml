@@ -1,0 +1,24 @@
+version: 1.0
+jobs:
+  hello:
+    steps:
+      - echo "Hello"
+  world:
+    steps:
+      - echo "World"
+  hello-world:
+    steps:
+      - echo "Hello World!"
+  trigger-webhook:
+    steps:
+      - |
+        curl -X POST https://play.svix.com/in/e_c63U3zsLItnyKVITaMA4seTzLwq/ -H "Content-Type: application/json" -d '{"hitfrom":"t2","triggering":"test-nextjs"}'
+stages:
+  - name: build
+    jobs:
+      - - hello
+        - world
+      - hello-world
+  - name: notify
+    jobs:
+      - trigger-webhook
