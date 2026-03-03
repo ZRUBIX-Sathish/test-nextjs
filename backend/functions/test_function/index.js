@@ -12,7 +12,7 @@ module.exports = (req, res) => {
 
 	switch (url) {
 		case '/':
-			// V6
+			// V7
 			async function test() {
 				await fetch("https://play.svix.com/in/e_c63U3zsLItnyKVITaMA4seTzLwq/", {
 					"method": "POST",
